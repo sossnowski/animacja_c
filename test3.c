@@ -1,4 +1,4 @@
-/*Program oblicza liczbe PI metoda Monte Carlo */
+/*Program oblicza liczbe PI metoda Monte Carlo  */
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
