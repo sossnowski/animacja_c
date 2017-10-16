@@ -1,3 +1,4 @@
+/*Program oblicza liczbe PI metoda Monte Carlo */
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
@@ -16,7 +17,7 @@ int main()
 	long pktWKole = LiczbaPktWKole(wylosowanePkt);
 	float pi = PoliczPi (pktWKole, wylosowanePkt);
 	printf("\nPi = %f", pi);
-	
+
 	return 0;
 }
 
@@ -25,7 +26,7 @@ long IloscWylosowanychLiczb()
 	long iloscWylosowanychLiczb;
 	printf("Ile liczb chcesz wylosowac? ");
 	int czyLiczba = scanf("%li", &iloscWylosowanychLiczb);
-	if(czyLiczba != 1) 
+	if(czyLiczba != 1)
 	{
 		printf("Nieprawidlowe dane");
 		exit(EXIT_FAILURE);
@@ -39,13 +40,13 @@ int IleLiczbZapisac()
 	int iloscZapisanychLiczb;
 	printf("Co ile liczb program ma zapisywac dane do pliku? ");
 	int czyLiczba = scanf("%d", &iloscZapisanychLiczb);
-	if(czyLiczba != 1) 
+	if(czyLiczba != 1)
 	{
 		printf("Nieprawidlowe dane");
 		exit(EXIT_FAILURE);
 	}
 	putchar('\n');
-	
+
 	return iloscZapisanychLiczb;
 }
 
@@ -57,11 +58,11 @@ double LosujWsp()
 long LiczbaPktWKole(long wylosowanePkt)
 {
 	long i;
-	long pktWKole = 0; 
-	int iloscLiczbWPliku = IleLiczbZapisac(); 
-	long Roz = wylosowanePkt/(long)iloscLiczbWPliku; 
-	int iloscLiczb[Roz];    
-	float Pi[Roz];   
+	long pktWKole = 0;
+	int iloscLiczbWPliku = IleLiczbZapisac();
+	long Roz = wylosowanePkt/(long)iloscLiczbWPliku;
+	int iloscLiczb[Roz];
+	float Pi[Roz];
 	long j = 0;
 	for(i = 1; i <= wylosowanePkt; i++)
 	{
@@ -75,19 +76,19 @@ long LiczbaPktWKole(long wylosowanePkt)
 			j++;
 		}
 	}
-	
+
 	printf("N1 = %li", pktWKole);
-	
+
 	ZapiszDoPliku (iloscLiczb, Pi, Roz);
-	
+
 	return pktWKole;
-	
+
 }
 
 float PoliczPi (long pktWKole, long wylosowanePkt)
 {
 	float pi = ((float)(4*pktWKole)/(wylosowanePkt));
-	
+
 	return pi;
 }
 
@@ -104,7 +105,7 @@ void ZapiszDoPliku (int *iloscLiczb, float *Pi, int Roz)
 	{
 		fprintf(fp, "N = %d, ", iloscLiczb[i]);
 		fprintf(fp, "Pi = %f\n", Pi[i]);
-	}	
+	}
 	fclose(fp);
 }
 
